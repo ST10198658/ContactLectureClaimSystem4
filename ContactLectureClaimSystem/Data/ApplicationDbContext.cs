@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using ContactLectureClaimSystem.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContactLectureClaimSystem.Data
@@ -9,5 +10,6 @@ namespace ContactLectureClaimSystem.Data
             : base(options)
         {
         }
+        public DbSet<Lecturer> Lecturers { get; set; }
     }
 }
