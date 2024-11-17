@@ -54,8 +54,13 @@ namespace ContactLectureClaimSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,FirstName,LastName,PhoneNumber,Email,Country,DateOfBirth,Address,Department,Designation,CreatedById,CreatedOn,ModifiedById,ModifiedOn")] Lecturer lecturer)
+        public async Task<IActionResult> Create( Lecturer lecturer)
         {
+            lecturer.CreatedById = "Kamogelo";
+            lecturer.CreatedOn = DateTime.Now;
+
+            lecturer.ModifiedById = "Kamogelo";
+            lecturer .ModifiedOn = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(lecturer);
@@ -86,7 +91,7 @@ namespace ContactLectureClaimSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,FirstName,LastName,PhoneNumber,Email,Country,DateOfBirth,Address,Department,Designation,CreatedById,CreatedOn,ModifiedById,ModifiedOn")] Lecturer lecturer)
+        public async Task<IActionResult> Edit(int id, Lecturer lecturer)
         {
             if (id != lecturer.Id)
             {
